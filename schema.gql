@@ -1,0 +1,54 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type UserDto {
+  id: Float!
+  name: String!
+  email: String!
+  age: Float!
+  items: [CreateItemdto!]!
+}
+
+type CreateItemdto {
+  id: ID!
+  name: String!
+  price: Int!
+  description: String!
+  user: UserDto
+}
+
+type Query {
+  items: [CreateItemdto!]!
+  item(id: Float!): CreateItemdto!
+  users: [UserDto!]!
+  user(id: Float!): UserDto!
+}
+
+type Mutation {
+  createItem(item: CreateItemInput!): CreateItemdto!
+  updateItem(item: CreateItemInput!, id: Float!): CreateItemdto!
+  deleteItem(id: Float!): CreateItemdto!
+  createUser(user: CreateUserInput!): UserDto!
+  updateUser(user: UpdateUserInput!, id: Float!): UserDto!
+  deleteUser(id: Float!): UserDto!
+}
+
+input CreateItemInput {
+  name: String!
+  price: Int!
+  description: String!
+  userId: Int!
+}
+
+input CreateUserInput {
+  name: String!
+  email: String!
+  age: Float!
+}
+
+input UpdateUserInput {
+  name: String!
+  email: String!
+  age: Float!
+}
